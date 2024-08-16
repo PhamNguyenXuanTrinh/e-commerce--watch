@@ -1,0 +1,67 @@
+﻿@using ThiGiuaKy_LapTrinhWeb.Models;
+@{
+    ViewBag.Title = "Index";
+    List<SanPham> l = ViewData["dsSp"] as List<SanPham>;
+}
+<style>
+    form{
+        display: inline;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Danh sách sản phẩm kinh doanh</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                        @{
+                            foreach (SanPham i in l)
+                            {
+                                <div class="col-sm-3 mb-5">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                        <div class="ribbon-wrapper">
+                                            <div class="ribbon bg-primary">
+                                                @i.giaBan
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-5">
+                                                <p>@i.tenSP</p>
+                                               
+                                                @using (Html.BeginForm("Delete", "SanPhamDangKinhDoanh", FormMethod.Post))
+                                                {
+                                                    <input type="hidden" name="maSp" value="@i.maSP" />
+                                                     <button class="btn btn-danger" style="font-size :10px">Delete</button>
+                                                }
+                                                <button class="btn btn-success" style="font-size :10px">Moify</button>
+                                                
+                                                   @using (Html.BeginForm("Active", "SanPhamDangKinhDoanh", FormMethod.Post))
+                                                {
+                                                    <input type="hidden" name="maSp" value="@i.maSP" />
+                                                    <button class="btn btn-default" style="font-size :10px">@ViewBag.stBt</button>
+                                                }
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <img src="@i.hinhDD" width="100px" height="120px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,9 @@
+﻿@using ThiGiuaKy_LapTrinhWeb.Models;
+@{
+    TaiKhoan x = (TaiKhoan)Session["ttdn"];
+    if (x == null)
+    {
+        Response.Redirect("~/Login");
+    }
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}

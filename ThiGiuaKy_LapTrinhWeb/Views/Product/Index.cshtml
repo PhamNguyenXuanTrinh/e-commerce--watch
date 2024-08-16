@@ -1,0 +1,63 @@
+﻿@using ThiGiuaKy_LapTrinhWeb.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- shop section -->
+
+<section class="shop_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="all_courses">
+                <div class="container">
+                    <div class="tab-content" id="myTabContent">
+                        @{
+                            foreach (LoaiSP i in Common.getLoai().Take(5))
+                            {
+                                <div class="tab-pane fade show active" id="@i.maLoai" role="tabpanel" aria-labelledby="@i.maLoai-tab">
+                                    <h3 style="color: seagreen;" class="text-capitalize">@i.tenLoai</h3>
+                                    <div class="row">
+
+                                        @{
+                                            foreach (SanPham j in Common.tungLoaiSp(i.maLoai).Take(8))
+                                            {
+                                                <div class="col-sm-6 col-xl-3">
+                                                    <div class="box">
+                                                        <a href="@Url.Action("Index","About", new { maSP = j.maSP })">
+                                                            <div class="img-box">
+                                                                <img src="@j.hinhDD" alt="@j.tenSP">
+                                                            </div>
+                                                            <div class="detail-box">
+                                                                <h6>
+                                                                    @j.tenSP
+                                                                </h6>
+                                                                <h6>
+                                                                    Price:
+                                                                    <span>
+                                                                        @j.giaBan
+                                                                    </span>
+                                                                </h6>
+                                                            </div>
+      
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="btn-box col-md-12">
+                                        <a href="">
+                                            View All
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+            </div>
+        </div>
+       
+    </div>
+</section>
+
+<!-- end shop section -->

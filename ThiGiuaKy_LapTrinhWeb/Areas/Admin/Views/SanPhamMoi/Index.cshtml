@@ -1,0 +1,116 @@
+﻿@model ThiGiuaKy_LapTrinhWeb.Models.SanPham
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    @using (Html.BeginForm("Index", "SanPhamMoi", FormMethod.Post))
+    {
+        <div class="row">
+
+            <div class="col-md-6">
+                <!-- general form elements disabled -->
+                <div class="card card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Hình đại diện</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <img src="~/Asset/Images/about-img.png" width="50%" />
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="">Upload</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- general form elements disabled -->
+
+            </div>
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Thông tin chính</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+             
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Tên bài viết</label>
+                            @Html.TextBoxFor(m=>m.tenSP , new {@class="form-control" , @placeholder="Tên bài viết không quá 30 Ký tự" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nội dung tóm tắt</label>
+                            @Html.TextAreaFor(m => m.ndTomTat, new { @class = "form-control", @row="6", @placeholder = "Nội dung tóm tắt không quá 100 Ký tự" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="gia">Giá bán</label>
+                                    @Html.TextBoxFor(m => m.ndTomTat, new { @class = "form-control",  @placeholder = "VND" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="donvi">Số lượng</label>
+                                    @Html.TextBoxFor(m => m.ndTomTat, new { @class = "form-control", @placeholder = "cái" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="thongtinkhuyenmai">Thông tin khuyến mãi</label>
+                                    <input type="text" class="form-control" placeholder=".........">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date">Ngày đăng</label>
+                                @Html.TextBoxFor(m => m.ndTomTat, new { @class = "form-control", @placeholder = "Enter" })
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Kiểm duyệt bài viết</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date">Tài khoản</label>
+                                <input type="text" class="form-control" placeholder="Enter">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Số lần đọc</label>
+                                <input type="text" class="form-control" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+       
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</div>
+
+
